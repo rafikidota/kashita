@@ -32,4 +32,4 @@ import { RedisConfigValidationSchema } from './env/redis.env.validation';
     }),
   ],
 })
-export class RedisConfigModule {}
+export class RedisCacheConfigModule {}

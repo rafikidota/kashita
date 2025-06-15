@@ -4,23 +4,23 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { createKeyv } from '@keyv/redis';
 import { Keyv } from 'keyv';
 import { CacheableMemory } from 'cacheable';
-import { RedisConfigModule } from '../../config/redis/redis.config.module';
+import { RedisCacheConfigModule } from '../../config/redis/redis.config.module';
 import { RedisOptions } from '../../common/types/redis.option';
-import { RedisService } from './redis.service';
+import { RedisCacheService } from './redis.service';
 
 @Module({})
-export class RedisModule {
+export class RedisCacheModule {
   static forRoot(options?: RedisOptions): DynamicModule {
     if (!options) {
       return {
-        module: RedisModule,
-        imports: [RedisConfigModule],
-        providers: [RedisService],
-        exports: [RedisService],
+        module: RedisCacheModule,
+        imports: [RedisCacheConfigModule],
+        providers: [RedisCacheService],
+        exports: [RedisCacheService],
       };
     }
     return {
-      module: RedisModule,
+      module: RedisCacheModule,
       imports: [
         CacheModule.register({
           useFactory: (options: RedisOptions) => {
@@ -32,8 +32,8 @@ export class RedisModule {
           },
         }),
       ],
-      providers: [RedisService],
-      exports: [RedisService],
+      providers: [RedisCacheService],
+      exports: [RedisCacheService],
     };
   }
 }

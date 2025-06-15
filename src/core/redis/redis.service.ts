@@ -4,7 +4,7 @@ import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
 
 @Injectable()
-export class RedisService {
+export class RedisCacheService {
   constructor(@Inject(CACHE_MANAGER) private manager: Cache) {}
 
   async get<T>(key: string): Promise<T | undefined> {
