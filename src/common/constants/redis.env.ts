@@ -1,4 +1,4 @@
-export const Env = {
+export const RedisEnv = {
   REDIS_URL: 'REDIS_URL',
   TTL: 'CACHEABLE_MEMORY_TTL',
   LRU_SIZE: 'CACHEABLE_MEMORY_LRU_SIZE',

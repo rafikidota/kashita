@@ -5,7 +5,7 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { createKeyv } from '@keyv/redis';
 import { Keyv } from 'keyv';
 import { CacheableMemory } from 'cacheable';
-import { Env } from '../../common/constants/env';
+import { RedisEnv } from '../../common/constants/redis.env';
 import { RedisEnvConfig } from './env/redis.env.config';
 import { RedisConfigValidationSchema } from './env/redis.env.validation';
 
@@ -21,9 +21,9 @@ import { RedisConfigValidationSchema } from './env/redis.env.validation';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (service: ConfigService) => {
-        const redisUrl = service.get<string>(Env.REDIS_URL);
-        const ttl: number = service.get<number>(Env.TTL);
-        const lruSize: number = service.get<number>(Env.LRU_SIZE);
+        const redisUrl = service.get<string>(RedisEnv.REDIS_URL);
+        const ttl: number = service.get<number>(RedisEnv.TTL);
+        const lruSize: number = service.get<number>(RedisEnv.LRU_SIZE);
         const store = new CacheableMemory({ ttl, lruSize });
         const keyv = new Keyv({ store });
         const keyvRedis = createKeyv(redisUrl);
