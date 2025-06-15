@@ -1,5 +1,3 @@
-export class Kashita {
-  static greet() {
-    console.log('Hello world from Kashita!!!');
-  }
-}
+export * from './common';
+export * from './config';
+export * from './core';
