@@ -1,0 +1,51 @@
+{
+  "name": "@rafikidota/kashita",
+  "version": "0.0.1",
+  "description": "Sometimes, the best way to solve your own problems is to help someone else.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafikidota/kashita.git"
+  },
+  "author": "rafiki <71207415+rafikidota@users.noreply.github.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "prepare": "husky",
+    "prebuild": "rimraf -rf dist",
+    "build": "tsc -p tsconfig.json",
+    "lint": "npx eslint --debug . --fix",
+    "format": "prettier --write \"**/*.ts\"",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@eslint/eslintrc": "3.3.1",
+    "@eslint/js": "9.29.0",
+    "@types/node": "24.0.1",
+    "@typescript-eslint/eslint-plugin": "8.34.0",
+    "@typescript-eslint/parser": "8.34.0",
+    "eslint": "9.29.0",
+    "eslint-config-prettier": "10.1.5",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "5.4.1",
+    "globals": "16.2.0",
+    "husky": "9.1.7",
+    "lint-staged": "16.1.1",
+    "prettier": "3.5.3",
+    "rimraf": "6.0.1",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.34.0"
+  },
+  "peerDependencies": {},
+  "keywords": [
+    "backend",
+    "nestjs",
+    "cache",
+    "redis"
+  ]
+}
